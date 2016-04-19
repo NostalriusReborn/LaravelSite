@@ -25,6 +25,16 @@ body, .nav, .col-logo, .row-logo, .main-header, .main-nav, .content, .row {
   -ms-flex-order: 1;
   order: 1; }
 
+.row {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.item {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
+
 @media (min-width: 769px) {
   .row-logo, .nav, .main-nav, .row {
     -webkit-flex-direction: row;
@@ -59,8 +69,8 @@ body, .nav, .col-logo, .row-logo, .main-header, .main-nav, .content, .row {
     -ms-flex-order: 0;
     order: 0; }
   .row {
-    -webkit-align-items: flex-start;
-    -ms-flex-align: start;
-    align-items: flex-start; } }
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around; } }
 
 /*# sourceMappingURL=flexbox.css.map */

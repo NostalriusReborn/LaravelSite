@@ -20,4 +20,9 @@ class PagesController extends Controller
     	}
     	return view('main.home', compact('svg'));
     }
+
+    public function connectionGuide() 
+    {
+        return view('main.connectionGuide');
+    }
 }

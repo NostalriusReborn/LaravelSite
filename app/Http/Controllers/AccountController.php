@@ -17,7 +17,7 @@ class AccountController extends Controller
     {
     	$newAccount = new Register();
     	$newAccount->register($request);
-    	Session::flash('message', 'Account Created!');
-    	return view('account.register');
+        $status = 1;
+    	return view('account.register', compact('status'));
     }
 }

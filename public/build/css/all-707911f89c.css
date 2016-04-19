@@ -457,7 +457,8 @@ h1, h2, h3 {
   margin: 0; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #FDF08B; }
 
 .field {
   color: #E4A769; }
@@ -465,6 +466,10 @@ a {
 .title {
   padding-top: 1em;
   padding-bottom: 1em; }
+
+.col-title {
+  padding-top: .5em;
+  padding-bottom: .5em; }
 
 a:hover .col-title, a:hover .col-subtitle {
   color: #FDF08B;
@@ -496,13 +501,19 @@ hr {
   text-align: center; }
 
 .list {
-  list-style-type: circle; }
+  list-style-type: disc; }
 
 .list-item {
-  padding-top: .5em; }
+  padding-top: .5em;
+  margin-left: 5px; }
 
 .flashMessage {
   color: green; }
+
+.header-title {
+  color: #E4A769;
+  padding-bottom: 1em;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; }
 
 /* ================================= 
   Base Layout Styles
@@ -510,7 +521,8 @@ hr {
 /* ---- Navigation ---- */
 .main-header {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
-  z-index: 1; }
+  z-index: 1;
+  height: 50vh; }
 
 .main-logo {
   width: 30%;
@@ -526,7 +538,7 @@ hr {
   padding: 10px 15px; }
 
 .parallax {
-  height: 300px; }
+  height: 500px; }
 
 .nav-item {
   text-align: center;
@@ -538,8 +550,11 @@ hr {
   height: 40%;
   width: 40%; }
 
-.row-logo, .row {
+.row-logo {
   padding-top: 1em;
+  padding-bottom: 1em; }
+
+.row {
   padding-bottom: 1em; }
 
 .nav, .footer {
@@ -560,10 +575,6 @@ hr {
   padding-top: 2em;
   padding-bottom: 2em; }
 
-.header-title {
-  color: #404040;
-  padding-bottom: 1em; }
-
 .centered {
   text-align: center; }
 
@@ -574,6 +585,8 @@ hr {
   .row-logo, .row, .nav {
     width: 70%;
     margin: 0 auto; }
+  .row-logo {
+    height: 55vh; }
   hr {
     display: none; }
   .nav-item {
@@ -607,6 +620,16 @@ body, .nav, .col-logo, .row-logo, .main-header, .main-nav, .content, .row {
   -webkit-order: 1;
   -ms-flex-order: 1;
   order: 1; }
+
+.row {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.item {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
 
 @media (min-width: 769px) {
   .row-logo, .nav, .main-nav, .row {
@@ -642,9 +665,9 @@ body, .nav, .col-logo, .row-logo, .main-header, .main-nav, .content, .row {
     -ms-flex-order: 0;
     order: 0; }
   .row {
-    -webkit-align-items: flex-start;
-    -ms-flex-align: start;
-    align-items: flex-start; } }
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around; } }
 
 /*# sourceMappingURL=flexbox.css.map */
 

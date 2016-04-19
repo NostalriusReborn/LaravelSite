@@ -4,10 +4,10 @@
 @section('content')
 <div class="row">
 	<div class="col register">
-		@if (isset($registerErrors))
+		@if (isset($registerErrors[0]))
 		<h1>Error:</h1>
 		<ul class="list">
-			@foreach ($registerErrors as $error)
+			@foreach ($errors as $error)
 			<li class="list-item"> {!! $error !!} </li>
 			@endforeach
 		</ul>
@@ -17,15 +17,15 @@
 		{{ csrf_field() }} 
 			<div class="field">
 			 	<h3>Username:</h3>
-				<input type="text" name="username">
+				<input type="text" name="username" required>
 			</div>
 			<div class="field">
 				<h3>Password:</h3>
-				<input type="text" name="password[]">
+				<input type="password" name="password[]" required>
 			</div>
 			<div class="field">
 				<h3>Password Confirmation</h3>
-				<input type="text" name="password[]">
+				<input type="password" name="password[]" required>
 			</div>
 			<button class="ui button" action="submit">Register Account</button>
 		</form>
@@ -33,7 +33,7 @@
 	<div class="col">
 		<h1>Note:</h1>
 		<ul class="list">
-			<li class="list-item">This Realm is Early Access.</li>
+			<li class="list-item">This is a Beta Realm</li>
 			<li class="list-item">You don't need to enter your old Nostralius account information!</li>
 			<li class="list-item">Your Nostalrius characters won't be available earlier than 30th of April.</li>
 			<li class="list-item">This Beta Realm doesn't meet the quality standards of Nostalrius until we have the Nostalrius data. Our goal stays the same.</li>
