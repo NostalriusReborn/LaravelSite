@@ -7,7 +7,7 @@ use App\RealmAccount;
 
 class register 
 {
-	public function register(Request $request)
+    public function register(Request $request)
     {
     	if ($this->validateRequest($request))
     	{
