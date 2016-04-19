@@ -7,7 +7,7 @@ use App\RealmAccount;
 
 class register 
 {
-	public function register(Request $request)
+    public function register(Request $request)
     {
     	if ($this->validateRequest($request))
     	{
@@ -32,7 +32,7 @@ class register
     	$newAccount->username = $request->input('username');
     	$newAccount->sha_pass_hash = $hashedPassword;
     	$newAccount->gmlevel = 0;
-    	// $newAccount->save();
+    	$newAccount->save();
 
     	return;
     }
