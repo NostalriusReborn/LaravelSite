@@ -1,0 +1,46 @@
+body, .nav, .col-logo, .row-logo, .main-header, .main-nav, .content, .row {
+	display: flex;
+	flex-direction: column;
+}
+.row-logo, .col-logo, .main-header {
+	align-items: center;
+}
+.content {
+	flex: 2;
+}
+.col {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+.register {
+	order: 1;
+}
+
+@media (min-width: 769px) {
+	.row-logo, .nav, .main-nav, .row {
+		flex-direction: row;
+	}
+	.nav {
+		justify-content: space-between;
+	}
+	.main-nav {
+		align-items: center;
+	}
+	.row-logo {
+		align-self: center;
+		justify-content: space-between;
+	}
+	.content {
+		justify-content: center;
+	}
+	.col {
+		flex: 1;
+		padding: 1em;
+	}
+	.register {
+		order: 0;
+	}
+	.row {
+		align-items: flex-start;
+	}
+}
