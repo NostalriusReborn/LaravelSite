@@ -28,11 +28,12 @@ class register
     	}
     	$hashedPassword = $this->getPasswordHash($request->input('password'), $request->input('username'));
     	// save
+        $this->checkUsername($request->input('username'));
     	$newAccount = new RealmAccount();
     	$newAccount->username = $request->input('username');
     	$newAccount->sha_pass_hash = $hashedPassword;
     	$newAccount->gmlevel = 0;
-    	// $newAccount->save();
+    	$newAccount->save();
 
     	return;
     }
@@ -59,7 +60,7 @@ class register
 
     private function checkUsername($username)
     {
-    	if (RealmAccount::where('username', $username)->get() !== null)
+    	if (RealmAccount::where('username', $username)->get() == null)
     	{
     		$this->registerErrors[] = "The provided username is already taken.";
     	}
