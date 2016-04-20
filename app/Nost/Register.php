@@ -21,8 +21,7 @@ class register
 
     	if (count($this->registerErrors) !== 0)
     	{
-            $registerErrors = $this->registerErrors;
-    		return view('account.register', compact('registerErrors'));
+            return $this->registerErrors;
     	}
 
     	$hashedPassword = $this->getPasswordHash($request->input('username'), $request->input('passwords')[0]);
@@ -33,6 +32,8 @@ class register
     	$newAccount->sha_pass_hash = $hashedPassword;
     	$newAccount->gmlevel = 0;
     	$newAccount->save();
+
+        return [];
     }
 
     private function validateRequest(Request $request) 
@@ -48,11 +49,11 @@ class register
     	{
     		$this->registerErrors[] = "Please confirm the entered password.";
     	}
+
     	if ($passwords[0] !== $passwords[1]) 
     	{
     		$this->registerErrors[] = "Your passwords did not match.";
     	}
-    	return;
     }
 
     private function checkUsername($username)
@@ -61,7 +62,6 @@ class register
     	{
     		$this->registerErrors[] = "The provided username is already taken.";
     	}
-    	return;
     }
 
     private function getPasswordHash($username, $password)
