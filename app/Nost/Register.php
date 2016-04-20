@@ -16,7 +16,7 @@ class register
             $this->registerErrors[] = "Please fill in all the required fields.";
     	}
 
-    	$this->validatePassword($request->input('passwords'));
+    	$this->validatePassword($request->input('password'));
     	$this->checkUsername($request->input('username'));
 
     	if (count($this->registerErrors) !== 0)
@@ -24,7 +24,7 @@ class register
             return $this->registerErrors;
     	}
 
-    	$hashedPassword = $this->getPasswordHash($request->input('username'), $request->input('passwords')[0]);
+    	$hashedPassword = $this->getPasswordHash($request->input('username'), $request->input('password')[0]);
     	// save
 
     	$newAccount = new RealmAccount();
@@ -39,8 +39,8 @@ class register
     private function validateRequest(Request $request) 
     {
     	$username = $request->input('username');
-    	$passwords = $request->input('passwords');
-    	return isset($username) && isset($passwords[0]) && isset($passwords[1]);
+    	$passwords = $request->input('password');
+    	return isset($username) && count($passwords) === 2;
     }
 
     private function validatePassword($passwords) 
@@ -58,7 +58,7 @@ class register
 
     private function checkUsername($username)
     {
-    	if (RealmAccount::where('username', 'like', $username)->get() == null)
+    	if (count(RealmAccount::where('username', $username)->get()) !== 0)
     	{
     		$this->registerErrors[] = "The provided username is already taken.";
     	}
