@@ -7,7 +7,7 @@
 		@if (isset($registerErrors[0]))
 		<h1>Error:</h1>
 		<ul class="list">
-			@foreach ($errors as $error)
+			@foreach ($registerErrors as $error)
 			<li class="list-item"> {!! $error !!} </li>
 			@endforeach
 		</ul>
