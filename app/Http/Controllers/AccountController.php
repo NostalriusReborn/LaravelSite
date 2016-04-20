@@ -13,10 +13,18 @@ class AccountController extends Controller
     {
     	return view('account.register');
     }
+
     public function saveRegisteredAccount(Request $request) 
     {
     	$newAccount = new Register();
-    	$newAccount->register($request);
+        $registerErrors = $newAccount->register($request);
+
+
+        if (count($registerErrors) !== 0)
+        {
+            return view('account.register', compact('registerErrors'));
+        }
+
         $status = 1;
     	return view('account.register', compact('status'));
     }
