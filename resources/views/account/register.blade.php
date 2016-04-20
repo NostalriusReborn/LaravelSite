@@ -44,7 +44,7 @@
             <li class="list-item">Your Nostalrius characters won't be available ealier than 30th of April.</li>
             <li class="list-item">This Beta Realm doesn't meet the quality standards of Nostalrius until we have the Nostalrius data.</li>
             <li class="list-item">You will be able to migrate your beta characters to the main realm when it is up.</li>
-            <li class="list-item">The realmlist is "set realmlist logon.nostalrius-reborn.org"</li>
+            <li class="list-item">The realmlist is "set realmlist logon.vanilla-servers.org"</li>
         </ul>
     </div>
 </div>
