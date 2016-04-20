@@ -7,13 +7,16 @@ use App\RealmAccount;
 
 class register 
 {
-	public function register(Request $request)
+    private $registerErrors = [];
+
+    public function register(Request $request)
     {
     	if (!$this->validateRequest($request))
     	{
             $this->registerErrors[] = "Please fill in all the required fields.";
     	}
-    	$this->validatePassword($request->input('password'));
+
+    	$this->validatePassword($request->input('passwords'));
     	$this->checkUsername($request->input('username'));
 
     	if (count($this->registerErrors) !== 0)
@@ -21,16 +24,15 @@ class register
             $registerErrors = $this->registerErrors;
     		return view('account.register', compact('registerErrors'));
     	}
-    	$hashedPassword = $this->getPasswordHash($request->input('password'), $request->input('username'));
+
+    	$hashedPassword = $this->getPasswordHash($request->input('username'), $request->input('passwords')[0]);
     	// save
-        $this->checkUsername($request->input('username'));
+
     	$newAccount = new RealmAccount();
-    	$newAccount->username = $request->input('username');
+    	$newAccount->username = strtoupper($request->input('username'));
     	$newAccount->sha_pass_hash = $hashedPassword;
     	$newAccount->gmlevel = 0;
     	$newAccount->save();
-
-    	return;
     }
 
     private function validateRequest(Request $request) 
@@ -44,7 +46,7 @@ class register
     {
     	if (count($passwords) !== 2)
     	{
-    		$this->registerErrors[] = "Please fill in all the required fields.";
+    		$this->registerErrors[] = "Please confirm the entered password.";
     	}
     	if ($passwords[0] !== $passwords[1]) 
     	{
@@ -55,15 +57,15 @@ class register
 
     private function checkUsername($username)
     {
-    	if (RealmAccount::where('username', $username)->get() == null)
+    	if (RealmAccount::where('username', 'like', $username)->get() == null)
     	{
     		$this->registerErrors[] = "The provided username is already taken.";
     	}
     	return;
     }
 
-    private function getPasswordHash($passwords, $username)
+    private function getPasswordHash($username, $password)
     {
-    	return sha1(strtoupper($username).":".strtoupper($this->password[0]));
+    	return sha1(strtoupper($username).":".strtoupper($password));
     }
 }
