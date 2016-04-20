@@ -7,19 +7,14 @@ use App\RealmAccount;
 
 class register 
 {
-    public function register(Request $request)
+	public function register(Request $request)
     {
-    	if ($this->validateRequest($request))
+    	if (!$this->validateRequest($request))
     	{
-    		if ($this->validatePassword($request->input('password')));
+            $this->registerErrors[] = "Please fill in all the required fields.";
     	}
-    	else 
-    	{
-    		$this->registerErrors[] = "Please fill in all the required fields.";
-    	}
-    	$this->validateRequest($request);
     	$this->validatePassword($request->input('password'));
-    	// $this->checkUsername($request->input('username'));
+    	$this->checkUsername($request->input('username'));
 
     	if (count($this->registerErrors) !== 0)
     	{
