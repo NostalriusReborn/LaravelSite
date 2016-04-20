@@ -15,9 +15,9 @@
 			<h1 class="nav-title"><a href="/">Vanilla Servers</a></h1>
 			<ul class="main-nav">
 				<li class="nav-item"><a href="/connection-guide">Connection Guide</a></li>
-				<li class="nav-item"><a href="http://nostalrius-reborn.org/forum/">Forum</a></li>
-				<li class="nav-item"><a href="http://nostalrius-reborn.org/forum/viewtopic.php?f=4&t=162&sid=4053cf4f30c0d35feebf47b779e688e3">F.A.Q</a></li>
-				<li class="nav-item"><a href="#">Armory</a></li>
+				<li class="nav-item"><a href="https://vanilla.re/forum/">Forum</a></li>
+				<li class="nav-item"><a href="https://vanilla.re/forum/viewtopic.php?f=4&t=162&sid=4053cf4f30c0d35feebf47b779e688e3">F.A.Q</a></li>
+				<li class="nav-item"><a href="#" onclick="alert('not available yet');">Armory</a></li>
 				<li class="nav-item"><a href="/register">Login | Register</a></li>
 			</ul>
 		</header>
