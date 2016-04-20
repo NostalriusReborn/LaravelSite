@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class RealmAccount extends Model
 {
 	// protected $connection = 'database connection' found in database/config
-	//protected $table = 'tablename'; 
-	//protected $primaryKey = '';
+	protected $table = 'account'; 
+	protected $primaryKey = 'id';
 	public $timestamps = false;
 
 }
